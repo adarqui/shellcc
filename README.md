@@ -1,12 +1,12 @@
 # shellcc
 SHELLCC is a build environment for making shellcode in C using GCC and other binary tool. It is meant to enable people with limited knowledge of assembly to write quality shellcode as well as bring code maintainability by using a high level language (specifically C).
 
-Generally speaking shellcode does not require complex logic i.e. printfs, heavy abstraction or threading. These functions are left to the implants. Shellcode is expected to setup the environment and load the next stage of the attack. This step consists of doing cleanups and making a relatively small number of system call. For example, creating a reverse shell or downloading and executing the next stage implant. However, these functions can still be quite complex to write in assembly and it is hard to maintain them over time. Basically, all the reasons why we use compilers. 
+Generally speaking shellcode does not require complex logic i.e. printfs, heavy abstraction or threading. These functions are left to the implants. Shellcode is expected to setup the environment and load the next stage of the attack. This step consists of doing cleanups and making a relatively small number of system calls. For example, creating a reverse shell or downloading and executing the next stage implant. However, these functions can still be quite complex to write in assembly and it is hard to maintain them over time. Basically, all the reasons why we use compilers. 
 
 The main reason is, of course, I was not very good at writting ARM assembly by hand. So, I needed some help from a compiler.
 
 ## Example
-It is easy to see what this code, it calls out to an IP:PORT address and sends out a message. There is excessive error checking which would be really hard to do by hand. This code demonstrates how easy it is to build up the logic and let the compiler use its optimization magic in order to produce the best possible code.
+It is easy to see what this code does, it calls out to an IP:PORT address and sends out a message. There is excessive error checking which would be really hard to do by hand. This code demonstrates how easy it is to build up the logic and let the compiler use its optimization magic in order to produce the best possible code.
 
 ```C
   int main() {
@@ -38,7 +38,7 @@ It is easy to see what this code, it calls out to an IP:PORT address and sends o
   }
 ```
 
-The aboce C code produces a nice concise ARM64 ASM. It is likely that a dedicated person could produce an even more concise version, but that would take time better spent on finding vulnerabilities.
+The above C code produces a nice concise ARM64 ASM. It is likely that a dedicated person could produce an even more concise version, but that would take time better spent on finding vulnerabilities.
 
 ```Assembly
   0000000100007ecc	stp	x29, x30, [sp, #-16]!
