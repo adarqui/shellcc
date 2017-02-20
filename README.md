@@ -1,5 +1,5 @@
 # shellcc
-SHELLCC is a build environment for making shellcode in C using GCC and other binary tool. It is meant to enable people with limited knowledge of assembly to write quality shellcode as well as bring code maintainability by using a high level language (specifically C).
+SHELLCC is a build environment for making shellcode in C using GCC and other binary tools. It is meant to enable people with limited knowledge of assembly to write quality shellcode as well as bring code maintainability by using a high level language (specifically C).
 
 Generally speaking shellcode does not require complex logic i.e. printfs, heavy abstraction or threading. These functions are left to the implants. Shellcode is expected to setup the environment and load the next stage of the attack. This step consists of doing cleanups and making a relatively small number of system calls. For example, creating a reverse shell or downloading and executing the next stage implant. However, these functions can still be quite complex to write in assembly and it is hard to maintain them over time. Basically, all the reasons why we use compilers. 
 
